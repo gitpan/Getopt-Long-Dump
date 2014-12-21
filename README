@@ -1,0 +1,74 @@
+NAME
+    Getopt::Long::Dump - Run a Getopt::Long-based script but only to dump
+    the spec
+
+VERSION
+    This document describes version 0.03 of Getopt::Long::Dump (from Perl
+    distribution Getopt-Long-Dump), released on 2014-12-21.
+
+FUNCTIONS
+  dump_getopt_long_script(%args) -> [status, msg, result, meta]
+    Run a Getopt::Long-based script but only to dump the spec.
+
+    This function runs a CLI script that uses "Getopt::Long" but
+    monkey-patches beforehand so that "run()" will dump the object and then
+    exit. The goal is to get the object without actually running the script.
+
+    This can be used to gather information about the script and then
+    generate documentation about it or do other things (e.g.
+    "App::shcompgen" to generate a completion script for the original
+    script).
+
+    CLI script needs to use "Getopt::Long". This is detected currently by a
+    simple regex. If script is not detected as using "Getopt::Long", status
+    412 is returned.
+
+    Will return the "Getopt::Long" specification.
+
+    Arguments ('*' denotes required arguments):
+
+    *   filename* => *str*
+
+        Path to the script.
+
+    *   libs => *array*
+
+        Libraries to unshift to @INC when running script.
+
+    Return value:
+
+    Returns an enveloped result (an array).
+
+    First element (status) is an integer containing HTTP status code (200
+    means OK, 4xx caller error, 5xx function error). Second element (msg) is
+    a string containing error message, or 'OK' if status is 200. Third
+    element (result) is optional, the actual result. Fourth element (meta)
+    is called result metadata and is optional, a hash that contains extra
+    information.
+
+     (any)
+
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Getopt-Long-Dump>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/perlancar/perl-Getopt-Long-Dump>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    <https://rt.cpan.org/Public/Dist/Display.html?Name=Getopt-Long-Dump>
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
+AUTHOR
+    perlancar <perlancar@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2014 by perlancar@cpan.org.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
