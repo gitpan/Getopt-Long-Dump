@@ -1,7 +1,7 @@
 package Getopt::Long::Dump;
 
-our $DATE = '2014-12-21'; # DATE
-our $VERSION = '0.03'; # VERSION
+our $DATE = '2015-01-02'; # DATE
+our $VERSION = '0.04'; # VERSION
 
 use 5.010;
 use strict;
@@ -109,7 +109,7 @@ Getopt::Long::Dump - Run a Getopt::Long-based script but only to dump the spec
 
 =head1 VERSION
 
-This document describes version 0.03 of Getopt::Long::Dump (from Perl distribution Getopt-Long-Dump), released on 2014-12-21.
+This document describes version 0.04 of Getopt::Long::Dump (from Perl distribution Getopt-Long-Dump), released on 2015-01-02.
 
 =head1 FUNCTIONS
 
@@ -140,13 +140,11 @@ Arguments ('*' denotes required arguments):
 
 Path to the script.
 
-=item * B<libs> => I<array>
+=item * B<libs> => I<array[str]>
 
 Libraries to unshift to @INC when running script.
 
 =back
-
-Return value:
 
 Returns an enveloped result (an array).
 
@@ -157,8 +155,7 @@ First element (status) is an integer containing HTTP status code
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
 
- (any)
-
+Return value:  (any)
 =head1 HOMEPAGE
 
 Please visit the project's homepage at L<https://metacpan.org/release/Getopt-Long-Dump>.
@@ -181,7 +178,7 @@ perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by perlancar@cpan.org.
+This software is copyright (c) 2015 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

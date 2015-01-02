@@ -1,5 +1,11 @@
 Revision history for Getopt-Long-Dump
 
+0.04    2015-01-02 (PERLANCAR)
+
+	- [Bugfix] comply to GetOptions interface: when first argument is
+	  hashref, options specs are given in an array, not hash.
+
+
 0.03    2014-12-21 (PERLANCAR)
 
 	- Rename dist from Getopt-Long-Patch-DumpAndExit to Getopt-Long-Dump.

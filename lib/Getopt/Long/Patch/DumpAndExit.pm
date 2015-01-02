@@ -1,7 +1,7 @@
 package Getopt::Long::Patch::DumpAndExit;
 
-our $DATE = '2014-12-21'; # DATE
-our $VERSION = '0.03'; # VERSION
+our $DATE = '2015-01-02'; # DATE
+our $VERSION = '0.04'; # VERSION
 
 use 5.010001;
 use strict;
@@ -20,36 +20,36 @@ sub _dump {
 }
 
 sub _GetOptions(@) {
-    # discard optional first hash argument
     if (ref($_[0]) eq 'HASH') {
-        shift;
+        my $h = shift;
+        _dump({ map {$_ => sub{}} @_ });
+    } else {
+        _dump({@_});
     }
-    my %spec = @_;
-    _dump(\%spec);
     $config{-exit_method} eq 'exit' ? exit(0) : die;
 }
 
 sub _GetOptionsFromArray(@) {
     # discard array
     shift;
-    # discard optional first hash argument
     if (ref($_[0]) eq 'HASH') {
-        shift;
+        my $h = shift;
+        _dump({ map {$_ => sub{}} @_ });
+    } else {
+        _dump({@_});
     }
-    my %spec = @_;
-    _dump(\%spec);
     $config{-exit_method} eq 'exit' ? exit(0) : die;
 }
 
 sub _GetOptionsFromString(@) {
     # discard string
     shift;
-    # discard optional first hash argument
     if (ref($_[0]) eq 'HASH') {
-        shift;
+        my $h = shift;
+        _dump({ map {$_ => sub{}} @_ });
+    } else {
+        _dump({@_});
     }
-    my %spec = @_;
-    _dump(\%spec);
     $config{-exit_method} eq 'exit' ? exit(0) : die;
 }
 
@@ -101,7 +101,7 @@ Getopt::Long::Patch::DumpAndExit - Patch Getopt::Long to dump option spec and ex
 
 =head1 VERSION
 
-This document describes version 0.03 of Getopt::Long::Patch::DumpAndExit (from Perl distribution Getopt-Long-Dump), released on 2014-12-21.
+This document describes version 0.04 of Getopt::Long::Patch::DumpAndExit (from Perl distribution Getopt-Long-Dump), released on 2015-01-02.
 
 =head1 DESCRIPTION
 
@@ -132,7 +132,7 @@ perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by perlancar@cpan.org.
+This software is copyright (c) 2015 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
